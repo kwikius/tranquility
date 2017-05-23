@@ -53,6 +53,11 @@ mid_chord = 170;
 tip_chord = 120;
 centre_section_width = 25;
 
+module flight_controller()
+{
+  cube ([100,50,30],center =true);
+}
+
 module wing(){
    translate([-80,0,160]){
 
@@ -163,6 +168,13 @@ module motor(){
    }
 }
 
+module gps()
+{
+	color([0.2,0.8,0.0]){
+  cube([38,38,10],center = true);
+  }
+}
+
 module battery()
 {
   color([0.1,0.2,0.6]){
@@ -170,29 +182,48 @@ module battery()
   }
 }
 
-%fuselage_pod();
-
-pylon();
-tail_boom();
-
-   wing();
-   mirror([0,1,0]){wing();}
-
-
-tail();
-mirror([0,1,0]){tail();}
-
-translate([210,0,0]){
-   camera();
+module wing_servo()
+{
+color([.3,0.2,0.3]){
+ cube([22,17,8],center = true);
+}
 }
 
-translate([-220,0,153]){
-  motor();
+module esc()
+{
+color([.5,0,.5]){
+	cube([50,12,30],center = true);
 }
-translate([120,0,0]){
-   rotate([0,0,0]){
-      battery();
-   }
+}
+
+module rcrx()
+{
+color([.3,0.2,0.3]){
+	cube([40,22.5,6],center = true);
+}
+}
+
+module ias()
+{
+  rotate([0,90,0]){
+	cylinder (d= 3, h = 120);
+  }
+  cube([20,20,20],center = true);
+}
+
+module vtx()
+{
+	cube([10,24,30],center = true);
+   translate([0,-5,0]){
+		cylinder(r=1.5,h = 75);
+	}
+}
+
+module telem(){
+   cube([20,5,35],center = true);
+   translate([-2.5,0,0]){
+		cylinder(r=1.5,h = 170);
+	}
 }
 
 module NACA66021(){
@@ -251,6 +282,86 @@ module NACA66021(){
 
    ]);
 }
+
+translate([-90,0,155]){
+   ias();
+}
+
+translate([-100,0,-10]){
+   rcrx();
+}
+
+translate([190,0,0]){
+   vtx();
+}
+
+%fuselage_pod();
+
+pylon();
+tail_boom();
+
+wing();
+mirror([0,1,0]){wing();}
+tail();
+mirror([0,1,0]){tail();}
+
+translate([100,20,0]){
+   esc();
+}
+
+translate([-100,120,170]){
+   gps();
+}
+
+translate([-650,0,10]){
+   telem();
+}
+
+translate([-100,200,170]){
+   wing_servo();
+}
+
+translate([-100,600,170]){
+   wing_servo();
+}
+
+translate([-100,-200,170]){
+   wing_servo();
+}
+
+translate([-100,-600,170]){
+   wing_servo();
+}
+
+translate([-630,-50,50]){
+   wing_servo();
+}
+
+translate([-630,50,50]){
+   wing_servo();
+}
+
+translate([-20,0,0]){
+  flight_controller();
+}
+
+translate([210,0,0]){
+   camera();
+}
+
+translate([-220,0,153]){
+  motor();
+}
+
+translate([120,0,0]){
+   rotate([0,0,0]){
+      battery();
+   }
+}
+
+
+
+
 
 
 
