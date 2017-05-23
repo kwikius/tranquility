@@ -26,9 +26,9 @@ module fuselage_pod(){
 }
 
 module tail_boom(){
-  translate([-650,0,0]){
+  translate([-640,0,0]){
      rotate([0,90,0]){
-       cylinder (d = 16, h = 420);
+       cylinder (d = 16, h = 410);
      }
   }
 }
@@ -55,6 +55,31 @@ centre_section_width = 25;
 
 module wing(){
    translate([-80,0,160]){
+
+      polygon( points = [ 
+         [root_chord/3,0],
+         [root_chord/3,centre_section_width/2],
+         [mid_chord/3,wing_span/4 + centre_section_width/2],
+          [-mid_chord *2/3,wing_span/4 + centre_section_width/2],
+         [-root_chord*2/3,centre_section_width/2],
+         [-root_chord*2/3,0]
+        ]);
+
+       translate([0,(wing_span/4 + centre_section_width/2),0]){
+       rotate([5,0,0]){
+       translate([0,-(wing_span/4 + centre_section_width/2),0]){
+        polygon( points = [
+         [mid_chord/3,wing_span/4 + centre_section_width/2],
+         [tip_chord/3,wing_span/2 - tip_chord/3 + centre_section_width/2],
+         [0,wing_span/2 + centre_section_width/2],
+         [-tip_chord *2/3,wing_span/2 + centre_section_width/2],
+          [-mid_chord *2/3,wing_span/4 + centre_section_width/2]
+       ]);
+       }
+       }
+       }
+         
+/*
       rotate([2,-3,0]){
         polygon( points = [
          [root_chord/3,0],
@@ -68,17 +93,29 @@ module wing(){
          [-root_chord*2/3,0]
         ]);
       }
+*/
    }
 }
-tail_span= wing_span / 4;
+tail_span= wing_span / 3;
 tail_root_chord = 120;
 tail_tip_chord = 90;
 
 module tail()
 {
- 
     translate([-700,0,20]){
-    rotate([0,-1.5,0]){
+     translate([110,0,-20]){
+        rotate([0,-3,0]){
+        linear_extrude(height = 26){
+          scale([70,70,1]){
+          rotate([0,0,180]){
+             NACA66021();
+          }
+         }
+        }
+      }
+     }
+    
+    rotate([30,-1.5,0]){
        polygon( points = [
          [0,0],
          [tail_root_chord,0],
@@ -88,21 +125,6 @@ module tail()
        ]);
     }
   }
-}
-
-fin_height = 200;
-module fin(){
-   translate([-700,0.5,0]){
-      rotate([90,0,0]){
-         polygon( points = [
-            [0,0],
-            [tail_root_chord,0],
-            [tail_tip_chord,fin_height- tail_tip_chord/2],
-            [tail_tip_chord/2,fin_height],
-            [0,fin_height]
-         ]);
-      }
-   }
 }
 
 module camera()
@@ -159,8 +181,6 @@ tail_boom();
 
 tail();
 mirror([0,1,0]){tail();}
-
-fin();
 
 translate([210,0,0]){
    camera();
