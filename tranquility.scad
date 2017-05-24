@@ -287,7 +287,7 @@ translate([-90,0,155]){
    ias();
 }
 
-translate([-100,0,-10]){
+translate([-20,0,-25]){
    rcrx();
 }
 
