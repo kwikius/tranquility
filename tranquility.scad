@@ -28,7 +28,7 @@ module fuselage_pod(){
 module tail_boom(){
   translate([-640,0,0]){
      rotate([0,90,0]){
-       cylinder (d = 16, h = 410);
+       cylinder (d = 16, h = 460);
      }
   }
 }
