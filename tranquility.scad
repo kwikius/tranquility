@@ -60,7 +60,7 @@ module flight_controller()
 
 module wing(){
    translate([-80,0,160]){
-
+      rotate([5,0,0]){
       polygon( points = [ 
          [root_chord/3,0],
          [root_chord/3,centre_section_width/2],
@@ -71,7 +71,7 @@ module wing(){
         ]);
 
        translate([0,(wing_span/4 + centre_section_width/2),0]){
-       rotate([5,0,0]){
+
        translate([0,-(wing_span/4 + centre_section_width/2),0]){
         polygon( points = [
          [mid_chord/3,wing_span/4 + centre_section_width/2],
