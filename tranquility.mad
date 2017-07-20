@@ -1,0 +1,158 @@
+{
+    "overview": {
+        "MADversion": "2.0", 
+        "author": "", 
+        "description": "", 
+        "email": "", 
+        "name": "", 
+        "plans_height": "210", 
+        "plans_width": "297", 
+        "sheet_height": "210", 
+        "sheet_width": "297", 
+        "units": "mm"
+    }, 
+    "wing": [
+        {
+            "airfoil_root": "mh32", 
+            "airfoil_tip": "ag25", 
+            "chord_curve": "", 
+            "chord_root": "180", 
+            "chord_tip": "170", 
+            "dihedral": "1", 
+            "leading_edge": [
+                {
+                    "end_station": "End: Outer", 
+                    "size": "3", 
+                    "start_station": "Start: Inner"
+                }
+            ], 
+            "name": "inner", 
+            "sheet": [
+                {
+                    "depth": "1", 
+                    "end_station": "End: 450", 
+                    "start_station": "Start: 0", 
+                    "surface": "Top", 
+                    "xend": "200", 
+                    "xmode": "End Position", 
+                    "xstart": "-100"
+                }, 
+                {
+                    "depth": "1", 
+                    "end_station": "End: 450", 
+                    "start_station": "Start: 0", 
+                    "surface": "Bottom", 
+                    "xend": "200", 
+                    "xmode": "End Position", 
+                    "xstart": "-100"
+                }
+            ], 
+            "span": "450", 
+            "spar": [
+                {
+                    "end_station": "End: 450", 
+                    "height": "0.5", 
+                    "position": "0.3", 
+                    "position_ref": "Chord %", 
+                    "start_station": "Start: 0", 
+                    "surface": "Top", 
+                    "width": "5"
+                }, 
+                {
+                    "end_station": "End: 450", 
+                    "height": "0.5", 
+                    "position": "0.3", 
+                    "position_ref": "Chord %", 
+                    "start_station": "Start: 0", 
+                    "surface": "Bottom", 
+                    "width": "5"
+                }
+            ], 
+            "stations": "0 50 100 150 200 250 300 350 400 450", 
+            "sweep": "", 
+            "sweep_curve": "", 
+            "trailing_edge": [
+                {
+                    "end_station": "End: 450", 
+                    "height": "2", 
+                    "shape": "Bottom Sheet", 
+                    "start_station": "Start: 0", 
+                    "width": "25"
+                }
+            ], 
+            "twist": "0.7", 
+            "wing_link": "none"
+        }, 
+        {
+            "airfoil_root": "ag25", 
+            "airfoil_tip": "ag27", 
+            "chord_curve": "", 
+            "chord_root": "170", 
+            "chord_tip": "120", 
+            "dihedral": "3", 
+            "leading_edge": [
+                {
+                    "end_station": "End: Outer", 
+                    "size": "3", 
+                    "start_station": "Start: Inner"
+                }
+            ], 
+            "name": "outer", 
+            "sheet": [
+                {
+                    "depth": "1", 
+                    "end_station": "End: 450", 
+                    "start_station": "Start: 0", 
+                    "surface": "Top", 
+                    "xend": "200", 
+                    "xmode": "End Position", 
+                    "xstart": "-100"
+                }, 
+                {
+                    "depth": "1", 
+                    "end_station": "End: Outer", 
+                    "start_station": "Start: 0", 
+                    "surface": "Bottom", 
+                    "xend": "200", 
+                    "xmode": "Sheet Width", 
+                    "xstart": "-100"
+                }
+            ], 
+            "span": "450", 
+            "spar": [
+                {
+                    "end_station": "End: 450", 
+                    "height": "0.5", 
+                    "position": "0.3", 
+                    "position_ref": "Chord %", 
+                    "start_station": "Start: 0", 
+                    "surface": "Top", 
+                    "width": "5"
+                }, 
+                {
+                    "end_station": "End: 450", 
+                    "height": "0.5", 
+                    "position": "0.3", 
+                    "position_ref": "Chord %", 
+                    "start_station": "Start: 0", 
+                    "surface": "Bottom", 
+                    "width": "5"
+                }
+            ], 
+            "stations": "0 50 100 150 200 250 300 350 400 450", 
+            "sweep": "", 
+            "sweep_curve": "", 
+            "trailing_edge": [
+                {
+                    "end_station": "End: Outer", 
+                    "height": "2", 
+                    "shape": "Bottom Sheet", 
+                    "start_station": "Start: Inner", 
+                    "width": "25"
+                }
+            ], 
+            "twist": "0.5", 
+            "wing_link": "inner"
+        }
+    ]
+}
